@@ -3,16 +3,14 @@ package com.example.applicationluckyticket;
 import java.util.Arrays;
 
 public class Algorithm {
-
-    // создание пустого конструктора
+    
     public Algorithm() {
     }
 
-    // метод определения счастливый билет или нет
     public boolean isHappyTicket(String input) {
-        int inputInt = Integer.parseInt(input); // конвертирование данных из String в int
+        int inputInt = Integer.parseInt(input);
 
-        int s1 = 0, s2 = 0; // создание буферных переменных
+        int s1 = 0, s2 = 0;
 
 
         for (int i = 0; i < 6; i++) {
@@ -26,25 +24,23 @@ public class Algorithm {
             }
         }
 
-        // проверка равенства
-        if (s1 == s2) { // если суммы равны
-            return true;   // то билет счастливый
-        } else { // иначе
-            return false; // билет не счастливый
+        if (s1 == s2) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    // метод определения следующего счастливого билета
     public int nextHappyTicket(String input) {
-        int inputInt = Integer.parseInt(input); // конвертирование данных из String в int
+        int inputInt = Integer.parseInt(input);
 
-        if (!isHappyTicket(Integer.toString(inputInt))) { // если билет не счастливый
-            while (!isHappyTicket(Integer.toString(inputInt))) { // то выполняется цикл
-                inputInt = inputInt + 1; // шаговой проверки следующих билетов до наступления счастливого билета
+        if (!isHappyTicket(Integer.toString(inputInt))) {
+            while (!isHappyTicket(Integer.toString(inputInt))) {
+                inputInt = inputInt + 1;
             }
-            return inputInt; // возвращается найденный счастливый билет
-        } else { // иначе (в случае изначально счастливого билета)
-            return inputInt; // возвращается счастливый билет
+            return inputInt;
+        } else {
+            return inputInt;
         }
     }
 }
